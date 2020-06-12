@@ -111,3 +111,42 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(title, date, firstPargrph, secondPargrph, thirdPargrph ){
+  let article = document.createElement('div');
+  let artTitle = document.createElement('h2');
+  let artDate = document.createElement('p');
+  let para1 = document.createElement('p');
+  let para2 = document.createElement('p');
+  let para3 = document.createElement('p');
+  let expandButton  = document.createElement('span');
+
+  article.classList.add('article');
+  artDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+ // articles.appendChild(article);
+  article.append(artTitle);
+  article.append(artDate);
+  article.append(para1);
+  article.append(para2);
+  article.append(para3);
+  article.append(expandButton);
+
+  artTitle.textContent = title;
+  artDate.textContent = date;
+  para1.textContent = firstPargrph;
+  para2.textContent = secondPargrph;
+  para3.textContent = thirdPargrph;
+  expandButton.textContent = 'Button';
+
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  })
+    return article;
+};
+
+for(let i=0; i<data.length; i++){
+  let article = articleMaker(data[i]);
+  console.log(article)
+}
