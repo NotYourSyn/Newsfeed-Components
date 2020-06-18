@@ -124,7 +124,6 @@ function articleMaker(title, date, firstPargrph, secondPargrph, thirdPargrph ){
   const exButton  = document.createElement('span');
 
 //appending
-article.appendChild(article);
 artTitle.appendChild(article);
 artDate.appendChild(artTitle);
 para1.appendChild(artDate);
