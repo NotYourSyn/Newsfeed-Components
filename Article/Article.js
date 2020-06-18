@@ -113,26 +113,33 @@ const data = [
 */
 
 function articleMaker(title, date, firstPargrph, secondPargrph, thirdPargrph ){
-  let article = document.createElement('div');
-  let artTitle = document.createElement('h2');
-  let artDate = document.createElement('p');
-  let para1 = document.createElement('p');
-  let para2 = document.createElement('p');
-  let para3 = document.createElement('p');
-  let expandButton  = document.createElement('span');
 
-  article.classList.add('article');
-  artDate.classList.add('date');
-  expandButton.classList.add('expandButton');
+  //creating
+  const article = document.createElement('div');
+  const artTitle = document.createElement('h2');
+  const artDate = document.createElement('p');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const exButton  = document.createElement('span');
 
- // articles.appendChild(article);
-  article.append(artTitle);
-  article.append(artDate);
-  article.append(para1);
-  article.append(para2);
-  article.append(para3);
-  article.append(expandButton);
+//appending
+article.appendChild(article);
+artTitle.appendChild(article);
+artDate.appendChild(artTitle);
+para1.appendChild(artDate);
+para2.appendChild(para1);
+para3.appendChild(para2);
+exButton.appendChild(para3);
 
+//styling
+article.classList.add('articles', 'article');
+artDate.classList.add('date');
+exButton.classList.add('expandBUtton');
+
+
+ 
+//content
   artTitle.textContent = title;
   artDate.textContent = date;
   para1.textContent = firstPargrph;
@@ -140,13 +147,16 @@ function articleMaker(title, date, firstPargrph, secondPargrph, thirdPargrph ){
   para3.textContent = thirdPargrph;
   expandButton.textContent = 'Button';
 
+  //events
   expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
+    article.classList.toggle('close');
   })
     return article;
-};
 
-for(let i=0; i<data.length; i++){
-  let article = articleMaker(data[i]);
-  console.log(article)
 }
+const header = document.querySelector('.header');
+
+data.forEach((obj) =>{
+  header.appendChild(articleMaker(obj.title, obj.date, obj.firstPargrph, obj.secondPargrph, obj.thirdPargrph ))
+});
