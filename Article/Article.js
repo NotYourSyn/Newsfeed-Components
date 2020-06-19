@@ -111,3 +111,54 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph ){
+
+  //creating
+  const article = document.createElement('div');
+  const artTitle = document.createElement('h2');
+  const artDate = document.createElement('p');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const exButton  = document.createElement('span');
+
+//appending
+//article.appendChild(article);
+article.appendChild(artTitle);
+article.appendChild(artDate);
+article.appendChild(para1);
+article.appendChild(para2);
+article.appendChild(para3);
+article.appendChild(exButton);
+//article.appendChild(articleOpen);
+
+//styling
+article.classList.add('articles', 'article');
+artDate.classList.add('date');
+exButton.classList.add('expandButton');
+para1.classList.add('article');
+para2.classList.add('article');
+para3.classList.add('article');
+
+
+//content
+  artTitle.textContent = title;
+  artDate.textContent = date;
+  para1.textContent = firstParagraph;
+  para2.textContent = secondParagraph;
+  para3.textContent = thirdParagraph;
+  exButton.textContent = 'Expand';
+
+  //events
+  exButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');   
+  })
+    return article;
+
+}
+const articles = document.querySelector('.articles');
+
+data.forEach((obj) =>{
+  articles.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph ))
+});
