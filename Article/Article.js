@@ -152,9 +152,7 @@ para3.classList.add('article');
 
   //events
   exButton.addEventListener('click', () => {
-    const articleOpen = document.querySelector('.article-open');
-    article.classList.toggle('article-open');
-    
+    article.classList.toggle('article-open');   
   })
     return article;
 
