@@ -41,6 +41,7 @@ function menuMaker(array){
 
   menuDiv.classList.add('menu');
   menuBtn.classList.add('menu-button');
+  //menuBtn.textContent = 'expand'
 
   array.forEach((e) => {
     const listItems = document.createElement('li');
